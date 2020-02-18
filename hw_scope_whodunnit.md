@@ -28,7 +28,7 @@ const verdict = declareMurderer();
 console.log(verdict);
 ```
 
-<!-- Miss Scarlet because the the declareMurderer function has access to the scenario const as it's defined outside of the function. -->
+<!-- Miss Scarlet because the declareMurderer function has access to the scenario const as it's defined outside of the function. -->
 
 #### Episode 2
 
@@ -66,7 +66,7 @@ console.log('First Verdict: ', firstVerdict);
 const secondVerdict = `The murderer is ${murderer}.`;
 console.log('Second Verdict: ', secondVerdict);
 
-// firstVerdict and secondVerdict will both be Mrs. Peacock as the declareMurderer function changed it to that and was never reassigned after if was called
+// firstVerdict and will be Mrs. Peacock as the declareMurderer function changed it to that when it was called equal to firstVerdict. The secondVerdict will be professor plum as the murderer was reset back to professor plum as soon as the declareMurderer function was finished.
 ```
 
 #### Episode 4
@@ -85,7 +85,7 @@ const suspects = declareAllSuspects();
 console.log(suspects);
 console.log(`Suspect three is ${suspectThree}.`);
 
-// suspectThree will be Colonel Mustard as suspectThree was reassigned from Mrs. Peacock to him in the declareAllSuspects function which is called before the suspects are logged to the console
+// suspects will be Miss Scarlet, Professor Plum, Colonel Mustard as it was assigned to the result of the declareAllSuspects function, but suspectThree will still be Mrs. Peacock as it was never resassigned.
 ```
 
 #### Episode 5
@@ -167,7 +167,7 @@ changeMurderer();
 const verdict = declareMurderer();
 console.log(verdict);
 
-// The declareMurderer function will return 'Miss Scarlet', as even though the plotTwist function is called before it, the let only has scope inside its block and will not change the murderer variable, but when changeMurderer is called before the verdict, the murderer will now be Miss Scarlet as unexpectedOutcome is the last function to be ran before the changeMurderer functions ends, giving it as the final verdict
+// The murderer will be Mr.Green as both Colonel Mustard and Miss Scarlet have no scope outside of the plotTwist function and is assigned to a let, which is being resassigned by the unexpectedOutcome function but still is only ever that value inside the plotTwist block.
 ```
 
 #### Episode 8
